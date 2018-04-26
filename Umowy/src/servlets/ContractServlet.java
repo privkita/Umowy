@@ -20,13 +20,10 @@ public class ContractServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		ContractDao contractDao = (ContractDao) request.getAttribute("contractDao");
-		String active = request.getParameter("active");
-//		List<Contract> contracts = contractDao.getAllContracts();
-//		request.setAttribute("contracts", contracts);
-		
-		if (!active.equals("aktywna") || active == null) {
+		String active = request.getParameter("filtr");
+		if (!active.equals("aktywne")) {
 			List<Contract> contracts = contractDao.getAllContracts();
 			request.setAttribute("contracts", contracts);
 		} else {
@@ -34,6 +31,7 @@ public class ContractServlet extends HttpServlet {
 			request.setAttribute("contracts", activeContracts);
 		}
 		request.getRequestDispatcher("WEB-INF/view/contracts.jsp").forward(request, response);
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
