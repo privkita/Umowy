@@ -23,7 +23,9 @@
 			</ul>
 		</div>
 		<div class="content">
-			<h1>Systemy</h1>
+		<form method="post">
+			<h1>Nowy system</h1>
+			<h3>${message }</h3>
 			<table border="1">
 				<tr>
 					<th>Nazwa</th>
@@ -31,19 +33,28 @@
 					<th>Technologie</th>
 					<th>Klient</th>
 				</tr>
-				<c:forEach var="system" items="${systems }">
-					<tr>
-						<td>${system.name }</td>
-						<td>${system.description }</td>
-						<td>${system.technologies }</td>
-						<td>${system.client }</td>
-					</tr>
-				</c:forEach>
+				<tr>
+					<td>
+						<input type="text" name="setName" maxlength="30" size="15">
+					</td>
+					<td>${system.description }
+						<input type="text" name="setDescription" maxlength="400">
+					</td>
+					<td>${system.technologies }
+						<input type="text" name="setTechnologies" maxlength="200">
+					</td>
+					<td>${system.client }
+						<input type="text" name="setClient" maxlength="30" size="15">
+					</td>
+				</tr>
 			</table>
+			<br>
+			<input type="submit" class="button" value="Zapisz">
+		</form>
 		</div>
 		<div class="footer">
 			&copy; Copyright 2018
 		</div>
 	</div>
 </body>
-</html>
+</html>>

@@ -14,8 +14,8 @@
 		</div>
 		<div class="nav-bar">
 			<ul class="nav">
-				<li><a href="/Umowy/contracts?filtr=aktywne">AKTYWNE</a></li>
-				<li><a href="/Umowy/contracts?filtr=wszystkie">WSZYSTKIE</a></li>
+<!-- 				<li><a href="/Umowy/contracts?filtr=aktywne">AKTYWNE</a></li> -->
+				<li><a href="/Umowy/contracts?filtr=wszystkie">UMOWY</a></li>
 				<li><a href="/Umowy/systems">SYSTEMY</a></li>
 				<li><a href="#">O APLIKACJI</a></li>
 			</ul>

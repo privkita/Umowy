@@ -16,14 +16,15 @@ import entities.Contract;
  * Servlet implementation class ContractServlet
  */
 @WebServlet("/contracts")
-public class ContractServlet extends HttpServlet {
+public class ContractsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
+		// W zależności od wybranej opcji pobiera wszystkie lub tylko aktywne umowy
 		ContractDao contractDao = (ContractDao) request.getAttribute("contractDao");
-		String active = request.getParameter("filtr");
-		if (!active.equals("aktywne")) {
+		String filtr = request.getParameter("filtr");
+		if (!filtr.equals("aktywne")) {
 			List<Contract> contracts = contractDao.getAllContracts();
 			request.setAttribute("contracts", contracts);
 		} else {

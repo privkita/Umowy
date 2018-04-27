@@ -17,6 +17,7 @@
 			<ul class="nav">
 				<li><a href="/Umowy/contracts?filtr=aktywne">AKTYWNE</a></li>
 				<li><a href="/Umowy/contracts?filtr=wszystkie">WSZYSTKIE</a></li>
+				<li><a href="/Umowy/newContract">DODAJ</a></li>
 				<li><a href="/Umowy/systems">SYSTEMY</a></li>
 				<li><a href="#">O APLIKACJI</a></li>
 			</ul>
@@ -35,7 +36,12 @@
 				</tr>
 				<c:forEach var="contract" items="${contracts }">
 					<tr>
-						<td>${contract.id }</td>
+						<td>
+							<c:url var="url" scope="page" value="/contract">
+								<c:param name="id" value="${contract.id}" />
+							</c:url>
+							<a href="${url}">${contract.id}</a>
+						</td>
 						<td>${contract.system }</td>
 						<td>${contract.startDate }</td>
 						<td>${contract.endDate }</td>

@@ -157,10 +157,10 @@ Single styles
 
 .img-responsive { max-width: 100%; }
 
-.btn
+.button
 {
 	color: #fff !important;
-	background-color: royalblue;
+	background-color: 8c8c8c;
 	border-color: #222;
 	display: inline-block;
 	padding: .5em 1em;
@@ -176,19 +176,19 @@ Single styles
 	text-decoration: none;
 }
 
-.btn:hover
+.button:hover
 {
-	color: #fff !important;
-	background-color: green;
+	color: #ffffff!important;
+	background-color: #cccccc;
 }
 
-.btn:focus
+.button:focus
 {
 	color: #fff !important;
 	background-color: black;
 }
 
-.btn:active
+.button:active
 {
 	color: #fff !important;
 	background-color: red;

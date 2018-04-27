@@ -1,7 +1,6 @@
 package servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -12,11 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.SystemDao;
 
+import entities.System;
+
 /**
  * Servlet implementation class SystemServlet
  */
 @WebServlet("/systems")
-public class SystemServlet extends HttpServlet {
+public class SystemsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
