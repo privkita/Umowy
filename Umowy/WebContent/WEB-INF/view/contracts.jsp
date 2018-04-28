@@ -17,7 +17,8 @@
 			<ul class="nav">
 				<li><a href="/Umowy/contracts?filtr=aktywne">AKTYWNE</a></li>
 				<li><a href="/Umowy/contracts?filtr=wszystkie">WSZYSTKIE</a></li>
-				<li><a href="/Umowy/newContract">DODAJ</a></li>
+				<li><a href="/Umowy/newContract">NOWA</a></li>
+				<li><a href="/Umowy/import">IMPORT</a></li>
 				<li><a href="/Umowy/systems">SYSTEMY</a></li>
 				<li><a href="#">O APLIKACJI</a></li>
 			</ul>

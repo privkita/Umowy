@@ -15,16 +15,15 @@
 		</div>
 		<div class="nav-bar">
 			<ul class="nav">
-<!-- 				<li><a href="/Umowy/contracts?filtr=aktywne">AKTYWNE</a></li> -->
 				<li><a href="/Umowy/contracts?filtr=wszystkie">UMOWY</a></li>
 				<li><a href="/Umowy/systems">SYSTEMY</a></li>
-				<li><a href="/Umowy/newSystem">DODAJ</a></li>
+				<li><a href="/Umowy/newSystem">NOWY</a></li>
 				<li><a href="#">O APLIKACJI</a></li>
 			</ul>
 		</div>
 		<div class="content">
 			<h1>Systemy</h1>
-			<table border="1">
+			<table>
 				<tr>
 					<th>Nazwa</th>
 					<th>Opis</th>

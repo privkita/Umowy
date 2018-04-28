@@ -59,4 +59,34 @@ public class ContractDao {
 			return false;
 		}
 	}
+	
+	public boolean idExist(String id) {
+		EntityTransaction et = em.getTransaction();
+		try {
+			em.createQuery("SELECT c FROM Contract c WHERE c.id = :id").
+				setParameter("id", id).getSingleResult();
+			return true;
+		} catch (Exception e) {
+		return false;
+		}
+	}
+
+	public void writeContracts(List<Contract> contractsList) {
+		EntityTransaction et = em.getTransaction();
+		for (Contract c : contractsList) {
+			// Sprawdza czy są w bazie umowy o takim samym id jeśli tak dodaje do id "A"
+			while (idExist(c.getId())) {
+				String newId = c.getId() + "A";
+				c.setId(newId);
+			}			
+			try {
+				et.begin();
+				em.persist(c);
+				et.commit();
+			} catch (Exception e) {
+				e.printStackTrace();
+				et.rollback();
+			}
+		}
+	}
 }

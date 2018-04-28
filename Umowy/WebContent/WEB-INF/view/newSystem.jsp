@@ -15,18 +15,17 @@
 		</div>
 		<div class="nav-bar">
 			<ul class="nav">
-<!-- 				<li><a href="/Umowy/contracts?filtr=aktywne">AKTYWNE</a></li> -->
 				<li><a href="/Umowy/contracts?filtr=wszystkie">UMOWY</a></li>
 				<li><a href="/Umowy/systems">SYSTEMY</a></li>
-				<li><a href="/Umowy/newSystem">DODAJ</a></li>
+				<li><a href="/Umowy/newSystem">NOWY</a></li>
 				<li><a href="#">O APLIKACJI</a></li>
 			</ul>
 		</div>
 		<div class="content">
 		<form method="post">
 			<h1>Nowy system</h1>
-			<h3>${message }</h3>
-			<table border="1">
+			<h4>${message }</h4>
+			<table>
 				<tr>
 					<th>Nazwa</th>
 					<th>Opis</th>

@@ -25,7 +25,7 @@ public class NewContractServlet extends HttpServlet {
        
 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		// Systemy pobierane do choosera
+		// Pobiera Systemy do choosera
 		SystemDao systemDao = (SystemDao) request.getAttribute("systemDao");
 		List<System> systems = systemDao.getSystems();
 		request.setAttribute("systems", systems);

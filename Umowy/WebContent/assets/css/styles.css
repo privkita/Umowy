@@ -159,8 +159,9 @@ Single styles
 
 .button
 {
+	align: right;
 	color: #fff !important;
-	background-color: 8c8c8c;
+	background-color: #8c8c8c;
 	border-color: #222;
 	display: inline-block;
 	padding: .5em 1em;
@@ -172,7 +173,6 @@ Single styles
 	vertical-align: middle;
 	cursor: pointer;
 	border: 1px solid transparent;
-	border-radius: .2em;
 	text-decoration: none;
 }
 
@@ -191,7 +191,7 @@ Single styles
 .button:active
 {
 	color: #fff !important;
-	background-color: red;
+	background-color: #000000;
 }
 
 .table
