@@ -17,21 +17,23 @@ import entities.System;
 @WebServlet("/newSystem")
 public class NewSystemServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.getRequestDispatcher("WEB-INF/view/newSystem.jsp").forward(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
-		
+
 		String name = request.getParameter("setName");
 		String description = request.getParameter("setDescription");
 		String technologies = request.getParameter("setTechnologies");
 		String client = request.getParameter("setClient");
 		System system = new System();
-		
+
 		if (!name.equals("") && !description.equals("") && !technologies.equals("") && !client.equals("")) {
 			system.setName(name);
 			system.setDescription(description);
@@ -47,8 +49,8 @@ public class NewSystemServlet extends HttpServlet {
 				systemDao.addSystem(system);
 				request.setAttribute("message", "Dodano nowy system");
 				doGet(request, response);
-			} 
-			
+			}
+
 		} else {
 			request.setAttribute("message", "Podano nieprawidłowe dane");
 			doGet(request, response);

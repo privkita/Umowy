@@ -57,7 +57,7 @@ table
 
 th, td
 {
-	padding: .5em 1em;
+	padding: .5em .5em;
 	vertical-align: top;
 	text-align: left;
 	border-bottom: 1px solid #ddd;
@@ -141,8 +141,8 @@ Nav
 
 .nav a:hover
 {
-	color: white;
-	background-color: #8c8c8c;
+	color: #8c8c8c;
+	background-color: #000000;
 }
 
 .nav a:active
@@ -198,7 +198,7 @@ Single styles
 {
 	width: 100%;
 	max-width: 100%;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 
 .list-unstyled

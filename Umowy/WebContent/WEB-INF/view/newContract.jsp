@@ -29,16 +29,17 @@
 			<h4>${message }</h4>
 			<table>
 				<tr>
-					<th>numer</th>
-					<th>system</th>
-					<th>data od / do</th>
-					<th>wpływy</th>
-					<th>okres</th>
-					<th>aktywna</th>
+					<th>Numer</th>
+					<th>System</th>
+					<th>Data od / do</th>
+					<th>Wpływy</th>
+					<th>Vat</th>
+					<th>Za okres</th>
+					<th>Aktywna</th>
 				</tr>
 				<tr>
 					<td>
-						<input type="text" name="setId" maxlength="15" size="7">
+						<input type="text" name="setId" maxlength="15" size="5">
 					</td>
 					<td><select name="setSystem">
 							<option value="">-------</option>
@@ -52,7 +53,15 @@
 						<input type="date" name="setEndDate">
 					</td>
 					<td>
-						<input type="text" name="setAmount" maxlength="10"size="7">
+						<input type="text" name="setAmount" maxlength="10"size="5">
+					</td>
+					<td>
+<!-- 						<input type="text" name="setTax" maxlenght="10" size="7"> -->
+						<select name="setTax">
+							<option value="">-------</option>
+							<option value="netto">netto</option>
+							<option value="brutto">brutto</option>
+						</select>
 					</td>
 					<td>
 						<input type="text" name="setSettlement" maxlength="15" size="7">

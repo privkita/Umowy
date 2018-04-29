@@ -22,19 +22,17 @@ import entities.System;
 @WebServlet("/contract")
 public class SingleContractServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		// Pobiera jedną umowę w zależności od przesłanego parametru
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// Pobiera jedną umowę w zależności od przesłanego w parametre nr Id
 		ContractDao contractDao = (ContractDao) request.getAttribute("contractDao");
 		String paramId = request.getParameter("id");
 		if (!paramId.equals("")) {
 			Contract contract = contractDao.getContractById(paramId);
 			request.setAttribute("contract", contract);
 		}
-		
-		// Systemy pobierane do choosera
+		// Pobiera listę Systemów dla choosera
 		SystemDao systemDao = (SystemDao) request.getAttribute("systemDao");
 		List<System> systems = systemDao.getSystems();
 		request.setAttribute("systems", systems);
@@ -42,16 +40,17 @@ public class SingleContractServlet extends HttpServlet {
 		request.getRequestDispatcher("WEB-INF/view/singleContract.jsp").forward(request, response);
 	}
 
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
-		
+		// Pobiera podane dane z formularza, sprawdza poprawność i uaktualnia dane w bazie
 		String id = request.getParameter("id");
 		String system = request.getParameter("setSystem");
 		LocalDate startDate = null;
 		LocalDate endDate = null;
 		BigDecimal amount = null;
+		String tax = request.getParameter("setTax");
 		String settlement = request.getParameter("setSettlement");
 		String active = request.getParameter("setActive");
 		Contract contract = new Contract();
@@ -69,16 +68,17 @@ public class SingleContractServlet extends HttpServlet {
 			doGet(request, response);
 		}
 
-		if (!id.equals("") && !system.equals("") && !settlement.equals("") && !active.equals("")) {
+		if (!id.equals("") && !system.equals("") && !settlement.equals("") && !active.equals("") 
+				&& !tax.equals("")) {
 			contract.setId(id);
 			contract.setSystem(system);
 			contract.setStartDate(startDate);
 			contract.setEndDate(endDate);
 			contract.setAmount(amount);
+			contract.setTax(tax);
 			contract.setSettlement(settlement);
 			contract.setActive(active);
 			ContractDao contractDao = (ContractDao) request.getAttribute("contractDao");
-			
 			if (contractDao.updateContract(contract)) {
 				request.setAttribute("message", "Aktualizacja danych przebiegła pomyślnie");
 				doGet(request, response);
@@ -89,8 +89,3 @@ public class SingleContractServlet extends HttpServlet {
 		}
 	}
 }
-		
-
-	
-
-

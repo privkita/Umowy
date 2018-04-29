@@ -31,8 +31,8 @@
 					<th>System</th>
 					<th>Data od</th>
 					<th>Data do</th>
-					<th>Wynagrodzenie</th>
-					<th>Rozliczenie</th>
+					<th>Wpływy</th>
+					<th>Za okres</th>
 					<th>Aktywna</th>
 				</tr>
 				<c:forEach var="contract" items="${contracts }">
@@ -46,7 +46,7 @@
 						<td>${contract.system }</td>
 						<td>${contract.startDate }</td>
 						<td>${contract.endDate }</td>
-						<td>${contract.amount }</td>
+						<td>${contract.amount } zł ${contract.tax }</td>
 						<td>${contract.settlement }</td>
 						<td>${contract.active }</td>
 					</tr>

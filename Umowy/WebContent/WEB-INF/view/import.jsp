@@ -28,6 +28,8 @@
 			<h1>Import umów z pliku</h1>
 			<h4>${message }</h4>
 			<br>
+			<h5>Przed importem danych proszę się upewnić, że Systemy których dotyczą umowy są zdefiniowane w bazie programu.</h5>
+			<br>
 			Podaj pełną ścieżkę do pliku:
 			<input type="text" name="path" size="50">
 			<br>

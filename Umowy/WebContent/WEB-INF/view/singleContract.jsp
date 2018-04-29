@@ -31,12 +31,13 @@
 				<h4>${message }</h4>
 				<table>
 					<tr>
-						<th>numer</th>
-						<th>system</th>
-						<th>data od / do</th>
-						<th>wpływy</th>
-						<th>okres</th>
-						<th>aktywna</th>
+						<th>Numer</th>
+						<th>System</th>
+						<th>Data od / do</th>
+						<th>Wpływy</th>
+						<th>Vat</th>
+						<th>Za okres</th>
+						<th>Aktywna</th>
 					</tr>
 					<tr>
 						<td>${contract.id }</td>
@@ -57,7 +58,17 @@
 						</td>
 						<td>
 							<input type="text" name="setAmount" maxlength="10"
-							size="7" value="${contract.amount }">
+							size="5" value="${contract.amount }">
+						</td>
+						<td>
+<!-- 							<input type="text" name="setTax" maxlength="10" -->
+<%-- 							size="7" value="${contract.tax }"> --%>
+							<select name="setTax">
+							<option value="${contract.tax }">${contract.tax }</option>
+							<option value="">-------</option>
+							<option value="netto">netto</option>
+							<option value="brutto">brutto</option>
+						</select>
 						</td>
 						<td>
 							<input type="text" name="setSettlement" maxlength="15"

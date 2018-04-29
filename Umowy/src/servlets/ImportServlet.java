@@ -22,36 +22,38 @@ import entities.Contract;
 @WebServlet("/import")
 public class ImportServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.getRequestDispatcher("WEB-INF/view/import.jsp").forward(request, response);
 	}
 
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
+		// Pobiera ścieżkę pliku do importu, sprawdza czy da się tego dokonać jeśli tak
+		// to importuje
+		// dane z pliku do listy Contract'ów i zapisuje listę do bazy jako pojedyncze
+		// Contract'y
 		if (request.getParameter("path").equals("")) {
-			request.setAttribute("message", "Podaj pełną ścieżkę do pliku !!!");
+			request.setAttribute("message", "Proszę podać ścieżkę do pliku!!!");
 			doGet(request, response);
 		}
-		String fileName = request.getParameter("path");
+		String path = request.getParameter("path");
 		XLSHandler handler = new XLSHandler();
 		try {
-			List<Contract> contractsList = handler.loadFile(fileName);
+			List<Contract> contractsList = handler.loadFile(path);
 			ContractDao contractDao = (ContractDao) request.getAttribute("contractDao");
-			contractDao.writeContracts(contractsList);
-			request.setAttribute("message", "Dodano do bazy " + contractsList.size() + "pozycji");
+			int succesCount = contractDao.writeContracts(contractsList);
+			request.setAttribute("message", "Liczba pozycji dodanych do bazy: " + succesCount);
 			doGet(request, response);
-			
-		} 
-		catch (FileNotFoundException e) {
+		} catch (FileNotFoundException e) {
 			request.setAttribute("message", "Nie odnaleziono pliku");
-		e.printStackTrace();
+			e.printStackTrace();
 		} catch (IOException e) {
 			request.setAttribute("message", "Błąd odczytu pliku");
-		e.printStackTrace();
+			e.printStackTrace();
 		} catch (NotOfficeXmlFileException e) {
 			request.setAttribute("message", "Podany plik nie jest typu xml");
 		}

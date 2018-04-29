@@ -22,27 +22,29 @@ import entities.System;
 @WebServlet("/newContract")
 public class NewContractServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// Pobiera Systemy do choosera
 		SystemDao systemDao = (SystemDao) request.getAttribute("systemDao");
 		List<System> systems = systemDao.getSystems();
 		request.setAttribute("systems", systems);
-		
+
 		request.getRequestDispatcher("WEB-INF/view/newContract.jsp").forward(request, response);
 	}
 
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
-		
+		// Pobiera dane z formularza, sprawdza ich poprawność i zapisuje do bazy jako
+		// nowy Contract
 		String id = request.getParameter("setId");
 		String system = request.getParameter("setSystem");
 		LocalDate startDate = null;
 		LocalDate endDate = null;
 		BigDecimal amount = null;
+		String tax = request.getParameter("setTax");
 		String settlement = request.getParameter("setSettlement");
 		String active = request.getParameter("setActive");
 		Contract contract = new Contract();
@@ -60,28 +62,32 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 			doGet(request, response);
 		}
 
-		if (!id.equals("") && !system.equals("") && !settlement.equals("") && !active.equals("")) {
+		if (!id.equals("") && !system.equals("") && !settlement.equals("") && !active.equals("") 
+				&& !tax.equals("")) {
 			contract.setId(id);
 			contract.setSystem(system);
 			contract.setStartDate(startDate);
 			contract.setEndDate(endDate);
 			contract.setAmount(amount);
+			contract.setTax(tax);
 			contract.setSettlement(settlement);
 			contract.setActive(active);
-			ContractDao contractDao = (ContractDao) request.getAttribute("contractDao");
 			
-			try {
-				contractDao.getContractById(id);
+			ContractDao contractDao = (ContractDao) request.getAttribute("contractDao");
+			// Sprawdza czy umowa o podanym id istnieje jeśli tak to zwraca błąd jęsli nie
+			// to
+			// dodaje do bazy
+			if (contractDao.idExist(id)) {
 				request.setAttribute("message", "Umowa o tym numerze już istnieje");
 				doGet(request, response);
-			} catch (Exception e) {
+			} else {
 				if (contractDao.addContract(contract)) {
 					request.setAttribute("message", "Dodano nową umowę");
 					doGet(request, response);
 				}
 			}
 		} else {
-			request.setAttribute("message", "Podano nieprawidłowe dane, aktualizacja nie powiodła się");
+			request.setAttribute("message", "Podano nieprawidłowe dane, zapis nie powiódł się");
 			doGet(request, response);
 		}
 	}

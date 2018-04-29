@@ -18,7 +18,7 @@ public class DBInitializer implements ServletRequestListener {
     }
 
     public void requestInitialized(ServletRequestEvent sre)  { 
-    	
+    	// Tworzy dla żądania managera Encji oraz obiekty dao 
     	EntityManager em = DBConfig.createEntitymanager();
     	ContractDao contractDao = new ContractDao(em);
     	SystemDao systemDao = new SystemDao(em);
