@@ -74,7 +74,6 @@ public class ContractDao {
 	public boolean idExist(String id) {
 		try {
 			getContractById(id);
-			;
 			return true;
 		} catch (Exception e) {
 			return false;

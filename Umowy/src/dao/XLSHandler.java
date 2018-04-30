@@ -8,26 +8,29 @@ import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.openxml4j.exceptions.NotOfficeXmlFileException;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import entities.Contract;
 
 public class XLSHandler {
 
 	// Wczytuje dane z pliku, zapisuje je jako obiekty Contract a następnie dodaje
 	// je do listy, jeśli wystąpi wyjatek przekazuje go do servletu celem obsłużenia
-	public List<Contract> loadFile(String fileName)
-			throws IOException, FileNotFoundException, NotOfficeXmlFileException {
+	public List<Contract> loadFile(String filePath)
+			throws IOException, FileNotFoundException, NotOfficeXmlFileException, EncryptedDocumentException, InvalidFormatException {
 		List<Contract> contractsList = new ArrayList<Contract>();
-		XSSFWorkbook workbook = null;
+//		Workbook workbook = null;
 		try {
-			workbook = new XSSFWorkbook(new FileInputStream(fileName));
-			XSSFSheet sheet = workbook.getSheetAt(0);
+			Workbook workbook = WorkbookFactory.create(new FileInputStream(filePath));
+			Sheet sheet = workbook.getSheetAt(0);
 			int rowCount = sheet.getLastRowNum();
-			XSSFRow row;
+			Row row;
+
 			for (int i = 1; i <= rowCount; i++) {
 				// sprawdza prawidłowość danych i dodaje je do obietku Contract
 				try {
@@ -51,9 +54,10 @@ public class XLSHandler {
 					continue;
 				}
 			}
+			workbook.close();
 			return contractsList;
 		} finally {
-			workbook.close();
+
 		}
 	}
 }

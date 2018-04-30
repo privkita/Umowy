@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.openxml4j.exceptions.NotOfficeXmlFileException;
 
 import dao.ContractDao;
@@ -36,6 +38,7 @@ public class ImportServlet extends HttpServlet {
 		// to importuje
 		// dane z pliku do listy Contract'ów i zapisuje listę do bazy jako pojedyncze
 		// Contract'y
+		// Zwraca informację o liczbie sukcesów
 		if (request.getParameter("path").equals("")) {
 			request.setAttribute("message", "Proszę podać ścieżkę do pliku!!!");
 			doGet(request, response);
@@ -54,7 +57,7 @@ public class ImportServlet extends HttpServlet {
 		} catch (IOException e) {
 			request.setAttribute("message", "Błąd odczytu pliku");
 			e.printStackTrace();
-		} catch (NotOfficeXmlFileException e) {
+		} catch (NotOfficeXmlFileException | EncryptedDocumentException | InvalidFormatException e) {
 			request.setAttribute("message", "Podany plik nie jest typu xml");
 		}
 		doGet(request, response);
