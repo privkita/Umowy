@@ -14,14 +14,20 @@ import entities.Contract;
 
 /**
  * Servlet implementation class ContractServlet
+ * Handle Contracts' table page
+ * 
+ * @author Lucas Kita
  */
 @WebServlet("/contracts")
 public class ContractsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+	/**
+	 * Depending on the selected option, it sends list of all or only active 
+	 * Contract type elements
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		// W zależności od wybranej opcji pobiera wszystkie lub tylko aktywne umowy
 		ContractDao contractDao = (ContractDao) request.getAttribute("contractDao");
 		String filtr = request.getParameter("filtr");
 		if (!filtr.equals("aktywne")) {

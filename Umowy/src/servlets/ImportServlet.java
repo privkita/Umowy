@@ -20,6 +20,9 @@ import entities.Contract;
 
 /**
  * Servlet implementation class ImportServlet
+ * Handle data import page 
+ * 
+ * @author Lucas Kita
  */
 @WebServlet("/import")
 public class ImportServlet extends HttpServlet {
@@ -29,16 +32,13 @@ public class ImportServlet extends HttpServlet {
 			throws ServletException, IOException {
 		request.getRequestDispatcher("WEB-INF/view/import.jsp").forward(request, response);
 	}
-
+	/**
+	 * Imports Contract type elements from a MSExcel file, handle exceptions
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
-		// Pobiera ścieżkę pliku do importu, sprawdza czy da się tego dokonać jeśli tak
-		// to importuje
-		// dane z pliku do listy Contract'ów i zapisuje listę do bazy jako pojedyncze
-		// Contract'y
-		// Zwraca informację o liczbie sukcesów
 		if (request.getParameter("path").equals("")) {
 			request.setAttribute("message", "Proszę podać ścieżkę do pliku!!!");
 			doGet(request, response);
@@ -57,8 +57,10 @@ public class ImportServlet extends HttpServlet {
 		} catch (IOException e) {
 			request.setAttribute("message", "Błąd odczytu pliku");
 			e.printStackTrace();
-		} catch (NotOfficeXmlFileException | EncryptedDocumentException | InvalidFormatException e) {
+		} catch (NotOfficeXmlFileException | InvalidFormatException e) {
 			request.setAttribute("message", "Podany plik nie jest typu xml");
+		} catch (EncryptedDocumentException e) {
+			request.setAttribute("message", "Podany plik jest zabezpieczony hasłem");
 		}
 		doGet(request, response);
 	}

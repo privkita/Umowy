@@ -15,12 +15,13 @@
 		</div>
 		<div class="nav-bar">
 			<ul class="nav">
+				<li><a href="/Umowy/index">START</a></li>
 				<li><a href="/Umowy/contracts?filtr=aktywne">AKTYWNE</a></li>
 				<li><a href="/Umowy/contracts?filtr=wszystkie">WSZYSTKIE</a></li>
 				<li><a href="/Umowy/newContract">NOWA</a></li>
 				<li><a href="/Umowy/import">IMPORT</a></li>
 				<li><a href="/Umowy/systems">SYSTEMY</a></li>
-				<li><a href="#">O APLIKACJI</a></li>
+				<li><a href="/Umowy/about">O APLIKACJI</a></li>
 			</ul>
 		</div>
 		<div class="content">
@@ -36,7 +37,7 @@
 						<th>Data od / do</th>
 						<th>Wpływy</th>
 						<th>Vat</th>
-						<th>Za okres</th>
+						<th>W skali</th>
 						<th>Aktywna</th>
 					</tr>
 					<tr>
@@ -61,8 +62,6 @@
 							size="5" value="${contract.amount }">
 						</td>
 						<td>
-<!-- 							<input type="text" name="setTax" maxlength="10" -->
-<%-- 							size="7" value="${contract.tax }"> --%>
 							<select name="setTax">
 							<option value="${contract.tax }">${contract.tax }</option>
 							<option value="">-------</option>

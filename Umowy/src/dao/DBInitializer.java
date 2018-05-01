@@ -16,7 +16,9 @@ public class DBInitializer implements ServletRequestListener {
     public void requestDestroyed(ServletRequestEvent sre)  { 
          // TODO Auto-generated method stub
     }
-
+    /**
+     * Set request attributes with DAO Objects for Contract and System 
+     */
     public void requestInitialized(ServletRequestEvent sre)  { 
     	// Tworzy dla żądania managera Encji oraz obiekty dao 
     	EntityManager em = DBConfig.createEntitymanager();

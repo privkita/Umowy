@@ -13,6 +13,9 @@ import entities.System;
 
 /**
  * Servlet implementation class NewSystemServlet
+ * Handle adding new System page
+ * 
+ * @author Lucas Kita
  */
 @WebServlet("/newSystem")
 public class NewSystemServlet extends HttpServlet {
@@ -22,7 +25,11 @@ public class NewSystemServlet extends HttpServlet {
 			throws ServletException, IOException {
 		request.getRequestDispatcher("WEB-INF/view/newSystem.jsp").forward(request, response);
 	}
-
+	
+	/**
+	 * Collects data from the form, checks their correctness and creates a new System
+	 * type element
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
@@ -40,7 +47,7 @@ public class NewSystemServlet extends HttpServlet {
 			system.setTechnologies(technologies);
 			system.setClient(client);
 			SystemDao systemDao = (SystemDao) request.getAttribute("systemDao");
-			// Sprawdza czy System o podanej nazwie już istnieje
+			// Checks if name of System already exist in database
 			try {
 				systemDao.getSystemByName(name);
 				request.setAttribute("message", "System o tej nazwie już istnieje");

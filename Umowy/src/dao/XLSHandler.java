@@ -17,14 +17,28 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import entities.Contract;
 
+/**
+ * Transform data from MSExcel file to list of Contract type elements.
+ * @author Lucas Kita
+ *
+ */
 public class XLSHandler {
 
-	// Wczytuje dane z pliku, zapisuje je jako obiekty Contract a następnie dodaje
-	// je do listy, jeśli wystąpi wyjatek przekazuje go do servletu celem obsłużenia
+	/**
+	 * Read MSExcel file row by row and add to list a Contract type elements, omit rows with 
+	 * wrong format data
+	 * @param filePath full lenght path to MSExcel file
+	 * @return list of Contract type element
+	 * @throws IOException  if an I/O error occurs
+	 * @throws FileNotFoundException  if an wrong path of file is given
+	 * @throws NotOfficeXmlFileException if the contents of the file cannot be parsed into a Workbook
+	 * @throws EncryptedDocumentException If the workbook given is password protected
+	 * @throws InvalidFormatException if the contents of the file cannot be parsed into a Workbook
+	 */
 	public List<Contract> loadFile(String filePath)
 			throws IOException, FileNotFoundException, NotOfficeXmlFileException, EncryptedDocumentException, InvalidFormatException {
 		List<Contract> contractsList = new ArrayList<Contract>();
-//		Workbook workbook = null;
+
 		try {
 			Workbook workbook = WorkbookFactory.create(new FileInputStream(filePath));
 			Sheet sheet = workbook.getSheetAt(0);
@@ -32,7 +46,6 @@ public class XLSHandler {
 			Row row;
 
 			for (int i = 1; i <= rowCount; i++) {
-				// sprawdza prawidłowość danych i dodaje je do obietku Contract
 				try {
 					row = sheet.getRow(i);
 					Contract contract = new Contract();

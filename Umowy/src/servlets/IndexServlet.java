@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Servlet implementation class IndexServlet
+ * Handle index page
+ * 
+ * @author Lucas Kita
  */
 @WebServlet("/index")
 public class IndexServlet extends HttpServlet {

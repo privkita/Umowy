@@ -15,11 +15,17 @@ import entities.System;
 
 /**
  * Servlet implementation class SystemServlet
+ * Handle Systems' table page
+ * 
+ * @author Lucas Kita
  */
 @WebServlet("/systems")
 public class SystemsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Sends list of System type elements
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// Pobiera z bazy i wypisuje listę Systemów

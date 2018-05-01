@@ -18,27 +18,34 @@ import entities.System;
 
 /**
  * Servlet implementation class NewContractServlet
+ * Handle adding new Contract page
+ * 
+ * @author Lucas Kita
  */
 @WebServlet("/newContract")
 public class NewContractServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
+	/**
+	 * Getting the Systems list for the Systems chooser
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// Pobiera Systemy do choosera
 		SystemDao systemDao = (SystemDao) request.getAttribute("systemDao");
 		List<System> systems = systemDao.getSystems();
 		request.setAttribute("systems", systems);
 
 		request.getRequestDispatcher("WEB-INF/view/newContract.jsp").forward(request, response);
 	}
-
+	
+	/**
+	 * Collects data from the form, checks their correctness and creates a new Contract
+	 * type element
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
-		// Pobiera dane z formularza, sprawdza ich poprawność i zapisuje do bazy jako
-		// nowy Contract
 		String id = request.getParameter("setId");
 		String system = request.getParameter("setSystem");
 		LocalDate startDate = null;
@@ -74,9 +81,7 @@ public class NewContractServlet extends HttpServlet {
 			contract.setActive(active);
 			
 			ContractDao contractDao = (ContractDao) request.getAttribute("contractDao");
-			// Sprawdza czy umowa o podanym id istnieje jeśli tak to zwraca błąd jęsli nie
-			// to
-			// dodaje do bazy
+			// Checks the validity of the id number of new Contract
 			if (contractDao.idExist(id)) {
 				request.setAttribute("message", "Umowa o tym numerze już istnieje");
 				doGet(request, response);

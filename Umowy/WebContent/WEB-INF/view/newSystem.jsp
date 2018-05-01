@@ -15,10 +15,11 @@
 		</div>
 		<div class="nav-bar">
 			<ul class="nav">
+				<li><a href="/Umowy/index">START</a></li>
 				<li><a href="/Umowy/contracts?filtr=wszystkie">UMOWY</a></li>
 				<li><a href="/Umowy/systems">SYSTEMY</a></li>
 				<li><a href="/Umowy/newSystem">NOWY</a></li>
-				<li><a href="#">O APLIKACJI</a></li>
+				<li><a href="/Umowy/about">O APLIKACJI</a></li>
 			</ul>
 		</div>
 		<div class="content">

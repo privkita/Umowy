@@ -18,21 +18,25 @@ import entities.System;
 
 /**
  * Servlet implementation class SingleContractServlet
+ * Handle editing Contract page
+ * 
+ * @author Lucas Kita
  */
 @WebServlet("/contract")
 public class SingleContractServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	/**
+	 * Gets single Contract from database to edit
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// Pobiera jedną umowę w zależności od przesłanego w parametre nr Id
 		ContractDao contractDao = (ContractDao) request.getAttribute("contractDao");
 		String paramId = request.getParameter("id");
 		if (!paramId.equals("")) {
 			Contract contract = contractDao.getContractById(paramId);
 			request.setAttribute("contract", contract);
 		}
-		// Pobiera listę Systemów dla choosera
+		// Getts Systems list for chooser
 		SystemDao systemDao = (SystemDao) request.getAttribute("systemDao");
 		List<System> systems = systemDao.getSystems();
 		request.setAttribute("systems", systems);
@@ -40,11 +44,14 @@ public class SingleContractServlet extends HttpServlet {
 		request.getRequestDispatcher("WEB-INF/view/singleContract.jsp").forward(request, response);
 	}
 
+	/**
+	 * Collects data from the form, checks their correctness and update data of selected 
+	 * Contract type element
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
-		// Pobiera podane dane z formularza, sprawdza poprawność i uaktualnia dane w bazie
 		String id = request.getParameter("id");
 		String system = request.getParameter("setSystem");
 		LocalDate startDate = null;

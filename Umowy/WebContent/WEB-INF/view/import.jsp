@@ -15,12 +15,13 @@
 		</div>
 		<div class="nav-bar">
 			<ul class="nav">
+				<li><a href="/Umowy/index">START</a></li>
 				<li><a href="/Umowy/contracts?filtr=aktywne">AKTYWNE</a></li>
 				<li><a href="/Umowy/contracts?filtr=wszystkie">WSZYSTKIE</a></li>
 				<li><a href="/Umowy/newContract">NOWA</a></li>
 				<li><a href="/Umowy/import">IMPORT</a></li>
 				<li><a href="/Umowy/systems">SYSTEMY</a></li>
-				<li><a href="#">O APLIKACJI</a></li>
+				<li><a href="/Umowy/about">O APLIKACJI</a></li>
 			</ul>
 		</div>
 		<div class="content">
