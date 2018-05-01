@@ -28,7 +28,7 @@ public class System implements Serializable{
 	}
 	
 	/**
-	 * Setts the name of the System
+	 * Sets the name of the System
 	 * @param name System's name
 	 */
 	public void setName(String name) {
@@ -44,8 +44,8 @@ public class System implements Serializable{
 	}
 	
 	/**
-	 * Setts description about System
-	 * @param string containing description information about System
+	 * Sets description about System
+	 * @param description string containing description information about System
 	 */
 	public void setDescription(String description) {
 		this.description = description;
@@ -60,7 +60,7 @@ public class System implements Serializable{
 	}
 	
 	/**
-	 * Setts information about used technologies to build the System
+	 * Sets information about used technologies to build the System
 	 * @param technologies string containing information about used technologies
 	 */
 	public void setTechnologies(String technologies) {
@@ -76,7 +76,7 @@ public class System implements Serializable{
 	}
 	
 	/**
-	 * Setts System owner's name
+	 * Sets System owner's name
 	 * @param client name of System owner
 	 */
 	public void setClient(String client) {

@@ -35,7 +35,7 @@ public class Contract implements Serializable {
 	}
 
 	/**
-	 * Setts the Contract id number
+	 * Sets the Contract id number
 	 * @param id Contract's id number
 	 */
 	public void setId(String id) {
@@ -51,8 +51,8 @@ public class Contract implements Serializable {
 	}
 	
 	 /**
-	  * Setts the name of the System contained in the Contract 
-	  * @param System name of system contained in Contract
+	  * Sets the name of the System contained in the Contract 
+	  * @param system name of system contained in Contract
 	  */
 	public void setSystem(String system) {
 		this.system = system;
@@ -67,7 +67,7 @@ public class Contract implements Serializable {
 	}
 	
 	/**
-	 * Setts the starting date of the Contract
+	 * Sets the starting date of the Contract
 	 * @param startDate the date when Contract start
 	 */
 	public void setStartDate(LocalDate startDate) {
@@ -83,7 +83,7 @@ public class Contract implements Serializable {
 	}
 	
 	/**
-	 * Setts the ending date of the Contract
+	 * Sets the ending date of the Contract
 	 * @param endDate the date when the Contract ends
 	 */
 	public void setEndDate(LocalDate endDate) {
@@ -99,7 +99,7 @@ public class Contract implements Serializable {
 	}
 	
 	/**
-	 * Setts the amount of the Contract
+	 * Sets the amount of the Contract
 	 * @param amount the amount of the Contract
 	 */
 	public void setAmount(BigDecimal amount) {
@@ -115,7 +115,7 @@ public class Contract implements Serializable {
 	}
 	
 	/**
-	 * Setts billing period of the Contract
+	 * Sets billing period of the Contract
 	 * @param settlement billing period of the Contract
 	 */
 	public void setSettlement(String settlement) {
@@ -131,7 +131,7 @@ public class Contract implements Serializable {
 	}
 	
 	/**
-	 * Setts whether the contract is active or not
+	 * Sets whether the contract is active or not
 	 * @param active whether the contract is active or not
 	 */
 	public void setActive(String active) {
@@ -147,7 +147,7 @@ public class Contract implements Serializable {
 	}
 	
 	/**
-	 * Setts the information whether the amount of Contract is with or without tax
+	 * Sets the information whether the amount of Contract is with or without tax
 	 * @param tax with or without tax
 	 */
 	public void setTax(String tax) {

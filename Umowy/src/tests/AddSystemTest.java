@@ -21,8 +21,8 @@ class AddSystemTest {
 		System system = new System();
 		system.setName("Grunwald");
 		system.setDescription("System niszczący intruzów - antywirus");
-		system.setTechnologies("Łuki, miecze i topory");
-		system.setClient("Jagiełło");
+		system.setTechnologies("miecze i topory");
+		system.setClient("Jagiello");
 		
 		systemDao.addSystem(system);
 		System newSystem = systemDao.getSystemByName("Grunwald");
