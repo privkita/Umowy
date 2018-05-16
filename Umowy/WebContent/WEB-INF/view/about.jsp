@@ -22,24 +22,6 @@
 		</div>
 		<div class="content">
 		<br>
-		<h4>O AUTORZE</h4>
-		<hr>
-		<p>Popełniający tę aplikację, jakże młody człek u progu swej kariery to ambitna i 
-			sumienna osoba pełna determinacji i gotowa do poświęceń aby osiągnąć cel. 
-			Komunikatywność, łatwość nawiązywania kontaktów, poczucie humoru oraz wrodzona 
-			skromność sprawia, że świetnie odnajduje się w pracy zespołowej.
-		<p>Pierwszej ze swoich pasji jaką są komputery zasmakował już w podstawówce. Zachłyśnięty
-			technologią i możliwościami jakie niósł ze sobą ZX Spectrum, stawiał pierwsze kroki 
-			w Basic'u robiąc wyczesane ramki i stringi jakich mało a dalej efekty specjalne od 
-			których kopara opada po dziś dzień.</p>
-		<p>Pomimo dłuższego związku w który wpadł ze swą drugą pasją jaką jest motoryzacja, nigdy 
-			nie zapomniał o tej pierwszej i w swych doświadczeniach zawodowych starał się sobie 
-			pozwalać z nią na małe tête-à-tête</p>
-		<br>
-		<p>Serdecznie pozdrawiam czytających i zapraszam do zapoznania się z aplikacją a za 
-			poświęcony czas pragnę podziękować wesołą niespodzianką na końcu tej zakładki</p>
-		<br>
-		<br>
 		<h4>O APLIKACJI</h4>
 		<hr>
 		<p>Aplikacja ta została zaprojektowana w celu wspomagania zarządzania umowami i służy 
@@ -138,25 +120,6 @@
 			pod warunkiem, że pozostałe parametry zostały wprowadzone do formularza.</p>
 		<br>
 		<br>
-		<h4>O AUTORZE</h4>
-		<hr>
-		<p>Popełniający tę aplikację, jakże młody człek u progu swej kariery to ambitna i 
-			sumienna osoba pełna detrminacji i gotowa do poświęceń aby osiagnąć cel. Komunikatywność,
-			łatwość nawiązywania kontaktów, poczucie humoru oraz wrodzona skromność sprawia, że
-			świetnie odnajduje się w pracy zespołowej.
-		<p>Pierwszej ze swoich pasji jaką są komputery zasmakował już w podstawówce. Zachłyśnięty
-			technologią jaką niósł ze sobą ZX Spectrum, stawiał pierwsze kroki w Basic'u robiąc
-			wyczesane ramki i stringi jakich mało a dalej efekty specjalne od których kopara opada
-			po dziś dzień.</p>
-		<p>Pomimo dłuższego związku w który wpadł ze swą drugą pasją jaką jest motoryzacja, nigdy 
-			nie zapomniał o tej pierwszej i w swych doświadczeniach zawodowych starał się sobie 
-			pozwalać z nią na małe tête-à-tête</p>
-		<hr>
-		<iframe src="https://giphy.com/embed/oRJbHBJetc6is" width="480" height="270" frameBorder="0" 
-			class="giphy-embed" allowFullScreen></iframe>
-		<p><a href="https://giphy.com/gifs/lemur-oRJbHBJetc6is">via GIPHY</a></p>
-		<p>Chcąc uświęcić międzynarodowe święto klasy robotniczej zwane też Świętem Pracy 
-			autor w pełni szczęśliwy ukończył program ten dnia 1.05.2018</p>
 		</div>
 		<div class="footer">
 			&copy; Copyright 2018
