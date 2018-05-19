@@ -36,7 +36,7 @@ public class SingleContractServlet extends HttpServlet {
 			Contract contract = contractDao.getContractById(paramId);
 			request.setAttribute("contract", contract);
 		}
-		// Getts Systems list for chooser
+		// Gets Systems list for chooser
 		SystemDao systemDao = (SystemDao) request.getAttribute("systemDao");
 		List<System> systems = systemDao.getSystems();
 		request.setAttribute("systems", systems);
