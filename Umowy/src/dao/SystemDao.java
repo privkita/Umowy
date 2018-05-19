@@ -30,6 +30,7 @@ public class SystemDao {
 	 * @return list of elements of the System type
 	 */
 	public List<System> getSystems() {
+		@SuppressWarnings("unchecked")
 		List<System> systems = em.createQuery("SELECT s FROM System s").getResultList();
 		return systems;
 	}
