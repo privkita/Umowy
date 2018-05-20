@@ -62,7 +62,7 @@
 							size="5" value="${contract.amount }">
 						</td>
 						<td>
-							<select name="setTax">
+						<select name="setTax">
 							<option value="${contract.tax }">${contract.tax }</option>
 							<option value="">-------</option>
 							<option value="netto">netto</option>
